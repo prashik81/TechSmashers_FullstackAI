@@ -40,6 +40,11 @@ export function SiteFooter() {
                     Patient Chatbot
                   </Link>
                 </li>
+                <li>
+                  <Link href="/reception" className="hover:text-primary">
+                    Receptionist Intake
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>

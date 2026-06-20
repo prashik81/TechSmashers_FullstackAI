@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/doctor", label: "Doctor Scribe" },
   { href: "/nurse", label: "Nurse Alerts" },
   { href: "/patient", label: "Patient Chat" },
+  { href: "/reception", label: "Intake Portal" },
 ];
 
 export function SiteHeader() {
@@ -52,7 +53,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Button size="sm" className="shadow-sm shadow-primary/20" render={<Link href="/doctor" />}>
+          <Button size="sm" className="shadow-sm shadow-primary/20" nativeButton={false} render={<Link href="/doctor" />}>
             Get Started
           </Button>
         </div>
@@ -89,6 +90,7 @@ export function SiteHeader() {
             <Button
               size="sm"
               className="mt-2"
+              nativeButton={false}
               render={<Link href="/doctor" onClick={() => setMobileOpen(false)} />}
             >
               Get Started

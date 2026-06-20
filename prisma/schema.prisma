@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  PATIENT
+  DOCTOR
+  NURSE
+  RECEPTION
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(PATIENT)
+  specialty String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  patientProfile       PatientProfile?
+  vitalSigns          VitalSign[]
+  prescriptions        Prescription[]
+  admissionRequests   AdmissionRequest[]
+  registeredPatients   PatientProfile[] @relation("ReceptionistRegistered")
+  appointmentsAsDoctor Appointment[]     @relation("DoctorAppointments")
+}
+
+model PatientProfile {
+  id                String    @id @default(cuid())
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String    @unique
+  dateOfBirth       DateTime?
+  phone             String?
+  address           String?
+  emergencyContact  String?
+  insuranceProvider String?
+  policyNumber      String?
+  registeredBy      String?
+  registeredByUser  User?     @relation("ReceptionistRegistered", fields: [registeredBy], references: [id])
+  registeredAt      DateTime  @default(now())
+
+  vitalSigns        VitalSign[]
+  prescriptions     Prescription[]
+  appointments      Appointment[]
+  admissionRequests AdmissionRequest[]
+
+  @@index([registeredBy])
+}
+
+model VitalSign {
+  id                   String         @id @default(cuid())
+  patient              PatientProfile @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  patientId            String
+  recordedBy           User           @relation(fields: [recordedByUserId], references: [id])
+  recordedByUserId      String
+  temperature          Float?
+  bloodPressureSystolic Int?
+  bloodPressureDiastolic Int?
+  heartRate            Int?
+  respiratoryRate      Int?
+  oxygenSaturation     Float?
+  painScore            Int?
+  notes                String?
+  createdAt            DateTime       @default(now())
+
+  @@index([patientId])
+}
+
+enum AppointmentStatus {
+  REQUESTED
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model Appointment {
+  id          String            @id @default(cuid())
+  patient     PatientProfile    @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  patientId   String
+  doctor      User              @relation("DoctorAppointments", fields: [doctorId], references: [id])
+  doctorId    String
+  scheduledAt DateTime
+  status      AppointmentStatus @default(REQUESTED)
+  reason      String?
+  createdAt   DateTime          @default(now())
+
+  admissionRequest AdmissionRequest?
+
+  @@index([patientId])
+  @@index([doctorId])
+}
+
+enum AdmissionStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model AdmissionRequest {
+  id               String         @id @default(cuid())
+  patient          PatientProfile @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  patientId       String
+  appointment      Appointment?   @relation(fields: [appointmentId], references: [id])
+  appointmentId   String?        @unique
+  requestedBy     User           @relation(fields: [requestedByUserId], references: [id])
+  requestedByUserId String
+  status          AdmissionStatus @default(PENDING)
+  reason          String
+  createdAt       DateTime       @default(now())
+
+  @@index([patientId])
+}
+
+model Prescription {
+  id                 String         @id @default(cuid())
+  patient            PatientProfile @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  patientId         String
+  prescribedBy      User           @relation(fields: [prescribedByUserId], references: [id])
+  prescribedByUserId String
+  medication        String
+  dosage            String
+  frequency         String
+  duration          String
+  instructions      String?
+  authorized        Boolean        @default(false)
+  soapNote          String?
+  createdAt         DateTime       @default(now())
+
+  @@index([patientId])
+}

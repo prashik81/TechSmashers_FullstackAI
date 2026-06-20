@@ -36,7 +36,7 @@ export function HeroSection() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-            <Button size="lg" className="shadow-lg shadow-primary/20" render={<Link href="/doctor" />}>
+            <Button size="lg" className="shadow-lg shadow-primary/20" nativeButton={false} render={<Link href="/doctor" />}>
               Launch Doctor Scribe
               <ArrowRight className="size-4" />
             </Button>
@@ -44,6 +44,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-blue-200 bg-white hover:bg-blue-50"
+              nativeButton={false}
               render={<Link href="/patient" />}
             >
               Try Patient Chat
