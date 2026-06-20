@@ -13,7 +13,7 @@ export function SiteFooter() {
               <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Activity className="size-4" />
               </div>
-              <span className="font-semibold">Hospital 2050 AI Copilot</span>
+              <span className="font-semibold">MedLife AI Copilot</span>
             </div>
             <p className="max-w-sm text-sm text-muted-foreground">
               Reducing documentation burden, prioritizing nurse alerts, and
@@ -69,7 +69,7 @@ export function SiteFooter() {
         <Separator className="my-8" />
 
         <p className="text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Hospital 2050 AI Copilot · TechSmashers
+          © {new Date().getFullYear()} MedLife AI Copilot · TechSmashers
           Fullstack AI
         </p>
       </div>

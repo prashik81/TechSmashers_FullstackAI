@@ -51,7 +51,7 @@ export function ImpactSection() {
             Measurable outcomes for your hospital
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Hospital 2050 AI Copilot targets the biggest time sinks in modern
+            MedLife AI Copilot targets the biggest time sinks in modern
             healthcare operations.
           </p>
         </div>

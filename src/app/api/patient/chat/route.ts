@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { generateText, HF_MODELS } from "@/lib/huggingface";
 
 const SYSTEM_CONTEXT =
-  "You are a helpful Hospital 2050 patient care assistant. Answer questions about visiting hours, medications, appointments, and general hospital care. Be empathetic and concise. Always remind users that for emergencies they should call 911. Do not provide specific medical diagnoses.";
+  "You are a helpful MedLife patient care assistant. Answer questions about visiting hours, medications, appointments, and general hospital care. Be empathetic and concise. Always remind users that for emergencies they should call 911. Do not provide specific medical diagnoses.";
 
 export async function POST(request: Request) {
   try {

@@ -13,7 +13,7 @@ const arimo = Arimo({
 });
 
 export const metadata: Metadata = {
-  title: "Hospital 2050 AI Copilot",
+  title: "MedLife AI Copilot",
   description:
     "AI-powered documentation, nurse alert prioritization, and patient communication for modern hospitals.",
 };

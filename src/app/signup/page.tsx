@@ -24,7 +24,7 @@ export default function SignupPage() {
           </div>
           <CardTitle className="text-2xl font-bold tracking-tight">Create an Account</CardTitle>
           <CardDescription>
-            Join Hospital 2050 to access your customized AI Copilot portal.
+            Join MedLife to access your customized AI Copilot portal.
           </CardDescription>
         </CardHeader>
         <CardContent>

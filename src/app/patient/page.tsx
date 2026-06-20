@@ -31,7 +31,7 @@ const QUICK_PROMPTS = [
 
 const MOCK_RESPONSES: Record<string, string> = {
   default:
-    "Thank you for your question. I am the Hospital 2050 patient assistant. For medical emergencies, please call 911 or visit the nearest emergency department. How else can I help you today?",
+    "Thank you for your question. I am the MedLife patient assistant. For medical emergencies, please call 911 or visit the nearest emergency department. How else can I help you today?",
   visiting:
     "General visiting hours are 10:00 AM – 8:00 PM daily. ICU visiting hours are 11:00 AM – 1:00 PM and 5:00 PM – 7:00 PM. Please check in at the front desk with a valid ID.",
   medication:
@@ -61,7 +61,7 @@ export default function PatientPage() {
       id: "0",
       role: "assistant",
       content:
-        "Hello! I am your Hospital 2050 patient assistant, powered by Llama 3.1. I can help with visiting hours, medications, appointments, and general care questions. How can I help you today?",
+        "Hello! I am your MedLife patient assistant, powered by Llama 3.1. I can help with visiting hours, medications, appointments, and general care questions. How can I help you today?",
     },
   ]);
   const [input, setInput] = useState("");

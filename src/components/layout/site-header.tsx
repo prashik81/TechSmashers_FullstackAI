@@ -29,7 +29,7 @@ export function SiteHeader() {
           </div>
           <div className="flex flex-col leading-none">
             <span className="text-sm font-semibold tracking-tight text-foreground">
-              Hospital 2050
+              MedLife
             </span>
             <span className="text-xs text-muted-foreground">AI Copilot</span>
           </div>
