@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Bot, ClipboardList, Sparkles, Stethoscope } from "lucide-react";
 
-import { SplineHeroScene } from "@/components/landing/spline-hero-scene";
+import { HeroVisual } from "@/components/landing/hero-visual";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -66,7 +66,7 @@ export function HeroSection() {
         <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
           <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-400/20 to-blue-600/10 blur-2xl" />
           <div className="relative h-[360px] overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-2xl shadow-blue-500/10 sm:h-[420px] lg:h-[480px]">
-            <SplineHeroScene />
+            <HeroVisual />
           </div>
         </div>
       </div>

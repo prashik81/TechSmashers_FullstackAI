@@ -103,7 +103,7 @@ export function FutureScopeSection() {
               </div>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["Next.js", "Hugging Face", "Meditron", "Llama 3.1", "Spline"].map((tech) => (
+              {["Next.js", "Hugging Face", "Meditron", "Llama 3.1", "Tailwind CSS"].map((tech) => (
                 <Badge key={tech} variant="outline">
                   <Sparkles className="size-3" />
                   {tech}
